@@ -77,7 +77,7 @@ export default function DashboardGuru() {
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar role="guru" />
 
-      <main className="flex-1 p-8 overflow-auto ml-64">
+      <main className="flex-1 overflow-auto pt-14 md:pt-0 md:ml-64 p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8">
@@ -86,17 +86,17 @@ export default function DashboardGuru() {
           </div>
 
           {/* Hero Card - Target Reward */}
-          <div className="mb-8 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 rounded-3xl p-8 shadow-xl relative overflow-hidden">
+          <div className="mb-6 md:mb-8 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 rounded-3xl p-5 md:p-8 shadow-xl relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9nPjwvc3ZnPg==')] opacity-30" />
-            <div className="relative z-10 flex items-center justify-between">
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="text-white">
                 <div className="flex items-center gap-2 mb-2">
-                  <Target className="w-6 h-6" />
-                  <h2 className="text-xl font-medium opacity-90">Target Reward Bulan Ini</h2>
+                  <Target className="w-5 h-5 md:w-6 md:h-6" />
+                  <h2 className="text-base md:text-xl font-medium opacity-90">Target Reward Bulan Ini</h2>
                 </div>
-                <div className="flex items-end gap-4">
-                  <span className="text-5xl font-bold">12.450</span>
-                  <div className="flex items-center gap-2 pb-2">
+                <div className="flex items-end gap-3 flex-wrap">
+                  <span className="text-4xl md:text-5xl font-bold">12.450</span>
+                  <div className="flex items-center gap-2 pb-1">
                     <span className="inline-flex items-center gap-1 px-3 py-1 bg-white/20 rounded-full text-sm font-medium">
                       <TrendingUp className="w-4 h-4" />
                       +15%
@@ -104,17 +104,17 @@ export default function DashboardGuru() {
                     <span className="text-white/70 text-sm">dari bulan lalu</span>
                   </div>
                 </div>
-                <p className="text-white/70 mt-2">Poin Fokus Alat Terakumulasi</p>
+                <p className="text-white/70 mt-2 text-sm">Poin Fokus Alat Terakumulasi</p>
               </div>
-              <div className="flex items-center gap-8">
+              <div className="flex items-center gap-6 md:gap-8">
                 <div className="text-center text-white">
-                  <p className="text-3xl font-bold">23%</p>
-                  <p className="text-white/70 text-sm">Peningkatan Hasil Belajar</p>
+                  <p className="text-2xl md:text-3xl font-bold">23%</p>
+                  <p className="text-white/70 text-xs md:text-sm">Peningkatan Hasil Belajar</p>
                 </div>
-                <div className="w-px h-16 bg-white/20" />
+                <div className="w-px h-12 bg-white/20" />
                 <div className="text-center text-white">
-                  <p className="text-3xl font-bold">{devices.length}</p>
-                  <p className="text-white/70 text-sm">Perangkat Aktif</p>
+                  <p className="text-2xl md:text-3xl font-bold">{devices.length}</p>
+                  <p className="text-white/70 text-xs md:text-sm">Perangkat Aktif</p>
                 </div>
               </div>
             </div>
