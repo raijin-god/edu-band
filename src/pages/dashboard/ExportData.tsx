@@ -28,7 +28,7 @@ export default function ExportData() {
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar role="guru" />
 
-      <main className="flex-1 p-8 overflow-auto ml-64">
+      <main className="flex-1 overflow-auto pt-14 md:pt-0 md:ml-64 p-4 md:p-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-8">
