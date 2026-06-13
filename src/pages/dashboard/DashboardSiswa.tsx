@@ -46,7 +46,7 @@ export default function DashboardSiswa() {
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar role="siswa" />
 
-      <main className="flex-1 p-8 overflow-auto ml-64">
+      <main className="flex-1 overflow-auto pt-14 md:pt-0 md:ml-64 p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8">
@@ -57,14 +57,14 @@ export default function DashboardSiswa() {
           {/* Profile Hero */}
           <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 rounded-3xl p-6 mb-8 relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9nPjwvc3ZnPg==')] opacity-30" />
-            <div className="relative z-10 flex items-center gap-6">
-              <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center">
-                <User className="w-10 h-10 text-white" />
+            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center flex-shrink-0">
+                <User className="w-8 h-8 md:w-10 md:h-10 text-white" />
               </div>
               <div className="text-white">
-                <h2 className="text-2xl font-bold">Siswa Demo</h2>
-                <p className="text-white/80">Kelas 10A - SMAN 1 Jakarta</p>
-                <div className="flex items-center gap-4 mt-2">
+                <h2 className="text-xl md:text-2xl font-bold">Siswa Demo</h2>
+                <p className="text-white/80 text-sm">Kelas 10A - SMAN 1 Jakarta</p>
+                <div className="flex items-center gap-3 mt-2 flex-wrap">
                   <span className="flex items-center gap-2 text-sm bg-white/10 px-3 py-1 rounded-full">
                     <Award className="w-4 h-4" />
                     Level 12
