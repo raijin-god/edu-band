@@ -21,7 +21,7 @@ export default function DashboardWali() {
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar role="wali" />
 
-      <main className="flex-1 p-8 overflow-auto ml-64">
+      <main className="flex-1 overflow-auto pt-14 md:pt-0 md:ml-64 p-4 md:p-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className={`mb-8 transition-all duration-700 ${animateIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -30,7 +30,7 @@ export default function DashboardWali() {
           </div>
 
           {/* AI Conclusion Card */}
-          <div className={`bg-gradient-to-r from-indigo-50 via-blue-50 to-cyan-50 rounded-3xl p-8 mb-8 border border-indigo-200 transition-all duration-700 delay-150 ${animateIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className={`bg-gradient-to-r from-indigo-50 via-blue-50 to-cyan-50 rounded-3xl p-5 md:p-8 mb-6 md:mb-8 border border-indigo-200 transition-all duration-700 delay-150 ${animateIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                 <Sparkles className="w-7 h-7 text-white" />
