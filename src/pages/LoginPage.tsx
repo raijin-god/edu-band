@@ -24,8 +24,7 @@ export default function LoginPage() {
 
     let success = false;
     if (authMode === 'credentials') {
-      localStorage.setItem('eduband_selected_role', selectedRole);
-      success = await login(username, password);
+      success = await login(username, password, selectedRole);
       if (success) {
         navigate(`/dashboard/${selectedRole}`);
       }
