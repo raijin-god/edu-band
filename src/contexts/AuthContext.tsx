@@ -7,6 +7,7 @@ interface AuthContextType {
   loginWithToken: (token: string) => Promise<boolean>;
   logout: () => void;
   isAuthenticated: boolean;
+  isLoading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -41,23 +42,29 @@ const USERS: Record<UserRole, User> = {
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem('eduband_user');
+    const stored = sessionStorage.getItem('eduband_user');
     if (stored) {
-      setUser(JSON.parse(stored));
+      try {
+        setUser(JSON.parse(stored));
+      } catch {
+        sessionStorage.removeItem('eduband_user');
+      }
     }
+    setIsLoading(false);
   }, []);
 
   const login = async (username: string, password: string): Promise<boolean> => {
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     if (username === DEMO_CREDENTIALS.username && password === DEMO_CREDENTIALS.password) {
-      const storedRole = localStorage.getItem('eduband_selected_role') as UserRole;
+      const storedRole = sessionStorage.getItem('eduband_selected_role') as UserRole;
       const role = storedRole || 'guru';
       const loggedInUser = USERS[role];
       setUser(loggedInUser);
-      localStorage.setItem('eduband_user', JSON.stringify(loggedInUser));
+      sessionStorage.setItem('eduband_user', JSON.stringify(loggedInUser));
       return true;
     }
     return false;
@@ -69,7 +76,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (token === DEMO_TOKEN) {
       const loggedInUser = USERS['wali'];
       setUser(loggedInUser);
-      localStorage.setItem('eduband_user', JSON.stringify(loggedInUser));
+      sessionStorage.setItem('eduband_user', JSON.stringify(loggedInUser));
       return true;
     }
     return false;
@@ -77,8 +84,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('eduband_user');
-    localStorage.removeItem('eduband_selected_role');
+    sessionStorage.removeItem('eduband_user');
+    sessionStorage.removeItem('eduband_selected_role');
   };
 
   return (
@@ -89,6 +96,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         loginWithToken,
         logout,
         isAuthenticated: !!user,
+        isLoading,
       }}
     >
       {children}
