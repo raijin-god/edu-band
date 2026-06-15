@@ -3,7 +3,7 @@ import { User, UserRole } from '../types';
 
 interface AuthContextType {
   user: User | null;
-  login: (username: string, password: string) => Promise<boolean>;
+  login: (username: string, password: string, role: UserRole) => Promise<boolean>;
   loginWithToken: (token: string) => Promise<boolean>;
   logout: () => void;
   isAuthenticated: boolean;
@@ -30,7 +30,7 @@ const USERS: Record<UserRole, User> = {
     id: '2',
     username: 'eduband',
     role: 'siswa',
-    name: 'Siswa Demo',
+    name: 'Siswa',
   },
   wali: {
     id: '3',
@@ -56,12 +56,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoading(false);
   }, []);
 
-  const login = async (username: string, password: string): Promise<boolean> => {
+  const login = async (username: string, password: string, role: UserRole): Promise<boolean> => {
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     if (username === DEMO_CREDENTIALS.username && password === DEMO_CREDENTIALS.password) {
-      const storedRole = sessionStorage.getItem('eduband_selected_role') as UserRole;
-      const role = storedRole || 'guru';
       const loggedInUser = USERS[role];
       setUser(loggedInUser);
       sessionStorage.setItem('eduband_user', JSON.stringify(loggedInUser));
@@ -85,7 +83,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     setUser(null);
     sessionStorage.removeItem('eduband_user');
-    sessionStorage.removeItem('eduband_selected_role');
   };
 
   return (
