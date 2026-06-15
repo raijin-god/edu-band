@@ -62,8 +62,7 @@ export default function DashboardSiswa() {
                 <User className="w-8 h-8 md:w-10 md:h-10 text-white" />
               </div>
               <div className="text-white">
-                <h2 className="text-xl md:text-2xl font-bold">Siswa Demo</h2>
-                <p className="text-white/80 text-sm">Kelas 10A - SMAN 1 Jakarta</p>
+                <h2 className="text-xl md:text-2xl font-bold">Siswa</h2>
                 <div className="flex items-center gap-3 mt-2 flex-wrap">
                   <span className="flex items-center gap-2 text-sm bg-white/10 px-3 py-1 rounded-full">
                     <Award className="w-4 h-4" />
