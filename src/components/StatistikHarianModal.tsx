@@ -31,7 +31,7 @@ export default function StatistikHarianModal({ studentName, device, onClose }: S
               </div>
               <div className="text-white">
                 <h2 className="text-xl font-bold">{studentName}</h2>
-                <p className="text-white/80 text-sm">{device} | Kelas 10A</p>
+                <p className="text-white/80 text-sm">{device}</p>
               </div>
             </div>
             <button
